@@ -6,7 +6,6 @@ curl https://blockstream.info/api/
 
 /block-height/:height 
 
-curl -X 
 
 GET 'https://blockstream.info/api/block-height/680000'
 
@@ -14,54 +13,27 @@ GET /block/:hash/txs[/:start_index]
 */
 
 
-
-
-// const userAction = async () => {
+// function used to get block Id from block height
+// const getBlockId = async () => {
 //     const response = await fetch('https://blockstream.info/api/block-height/680000');
 
 //     const myJson = await response.text();
 //     // do something with myJson
 //     console.log(myJson.toString());
 
-//     var a = myJson.toString(); //000000000000000000076c036ff5119e5a5a74df77abf64203473364509f7732
-    
+//     let blockId = myJson.toString(); //000000000000000000076c036ff5119e5a5a74df77abf64203473364509f7732
 //   }
 
-//   userAction();
+//   getBlockId();
 
 
 
 
 
-const userAction1 = async () => {
-    var index = 0;
-    // fs.readFile("", "utf8", (err, jsonString) => {
-    //     if (err) {
-    //       console.log("File read failed:", err);
-    //       return;
-    //     }
-    //     console.log("File data:", jsonString);
-    //   });
-
-    const response = await fetch('https://blockstream.info/api//block/000000000000000000076c036ff5119e5a5a74df77abf64203473364509f7732/txs/'+index);
-
-    const myJson = await response.json();
-    // do something with myJson
-    console.log(myJson);
-    // console.log(myJson.toString());
-
-    // var a = myJson.toString(); //000000000000000000076c036ff5119e5a5a74df77abf64203473364509f7732
-    fs.writeFileSync("output"+index+".json", JSON.stringify(myJson), function (err) {
-        if (err) throw err;
-        console.log('File is created successfully.');
-      });
-  }
-
-//   userAction1();
 
 
 
-  const userAction3 = async () => {
+  const fetchTransactionInBatch = async () => {
     var index = 0;
     var myJson
     let isError = false;
@@ -88,7 +60,7 @@ const userAction1 = async () => {
     findAns(transactions);
   }
 
-  userAction3();
+  fetchTransactionInBatch();
 
 
   const findAns = (transaction) => {
